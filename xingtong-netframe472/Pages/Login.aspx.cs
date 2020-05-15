@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using xingtong_netframe472;
 
 namespace Xingtong_NETFRAME.Pages
 {
@@ -48,7 +49,8 @@ namespace Xingtong_NETFRAME.Pages
                         }
                         rdr.Close();
                         Session["username"] = username;
-                        Response.Write("<script>alert(\"" + $"欢迎{username}使用本系统" + "\")</script>");
+                        toast.title = "登录成功";
+                        toast.content = $"欢迎{username}使用本系统";
                         Response.Redirect("Index.aspx");
                     }
                     else

@@ -137,6 +137,7 @@
     <Content Include="Pages\lib\jquery\dist\jquery.min.js" />
     <Content Include="Pages\lib\jquery\LICENSE.txt" />
     <Content Include="Pages\Login.aspx" />
+    <Content Include="Pages\Logout.aspx" />
     <Content Include="Pages\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -156,6 +157,13 @@
     <Compile Include="Pages\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,6 +179,7 @@
       <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="toast.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

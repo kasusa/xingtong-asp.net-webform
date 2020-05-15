@@ -8,82 +8,99 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>行通管理系统</title>
     <link rel="stylesheet" href="css/site.css" />
-   <!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<!-- Popper JS -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
 
 </head>
-<body>
-    <header>
-        <nav class="navbar  navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
+<form id="form2" runat="server">
+    <body>
+        <header>
+            <nav class="navbar  navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+                <div class="container">
+                 
+                    <img class="navbar-brand" style="width: 40px;" src="images/icon.png" />
+                    <a class="navbar-brand" href="Index.aspx">行通管理系统</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+                        aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+                        <ul class="navbar-nav flex-grow-1">
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="Index.aspx">主页</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">帮助</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark">移动端下载</a>
+                            </li>
+                            <li class="nav-item ml-auto">
+                                <asp:Button ID="Button1" runat="server" Text="Button" class="btn" CssClass="btn" ForeColor="#0066FF" OnClick="Button1_Click" />
+                            </li>
+                        </ul>
 
-                <img class="navbar-brand" style="width: 40px;" src="images/icon.png" />
-                <a class="navbar-brand" asp-area="" asp-page="/Index">行通管理系统</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" href="Index.aspx">主页</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark">帮助</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark">移动端下载</a>
-                        </li>
-                        <li class="nav-item ml-auto">
-                            <a class="nav-link text-primary" href="Login.aspx">
-                                <asp:Label ID="lableLoginOrUsername" runat="server" Text="Label"></asp:Label></a>
-                        </li>
-                    </ul>
-
+                    </div>
                 </div>
-            </div>
-        </nav>
-    </header>
-    <div class="container">
-        <div class="row">
-            <div class="col-2 col sidebar">
-                <div class="list-group shadow " style="margin-bottom: 90px;">
-                    <a class="text-light active list-group-item list-group-item-action">查询</a>
-                    <a href="#" class="list-group-item list-group-item-action">个人资料查询</a>
-                    <a href="#" class="list-group-item list-group-item-action">个人历史查询</a>
-                    <a class="text-light active list-group-item list-group-item-action">统计</a>
-                    <a href="#" class="list-group-item list-group-item-action">曲线统计</a>
-                    <a href="#" class="list-group-item list-group-item-action">柱状图统计</a>
-                    <a href="#" class="list-group-item list-group-item-action">饼状图统计</a>
-                    <a class="text-light active  list-group-item list-group-item-action">信息录入</a>
-                    <a href="#" class="list-group-item list-group-item-action">添加地点信息</a>
-                    <a href="#" class="list-group-item list-group-item-action">修改地点信息</a>
-                    <a href="#" class="list-group-item list-group-item-action">提升人员权限</a>
+            </nav>
+        </header>
+        <div class="container">
+            <asp:Panel ID="Panel1" runat="server">
+                        <div class="toast" data-autohide="false" style=" position:absolute; right: 10px; top: 10px; float: right; min-width: 300px;">
+                            <div class="toast-header">
+                                <strong class="mr-auto text-primary">
+                                    <asp:Label ID="Label_alert_title" runat="server" Text="Label"></asp:Label></strong>
+                                <small class="text-muted">刚刚</small>
+                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                            </div>
+                            <div class="toast-body">
+                                <asp:Label ID="Label_alert_content" runat="server" Text="Label"></asp:Label>
+                            </div>
+                        </div>
+                        <script>
+                            $(document).ready(function () {
+                                $('.toast').toast('show');
+                            });
+                        </script>
+                    </asp:Panel>
+            <div class="row">
+                <div class="col-2 col sidebar">
+                    <div class="list-group shadow " style="margin-bottom: 90px;">
+                        <a class="text-light active list-group-item list-group-item-action">查询</a>
+                        <a href="#" class="list-group-item list-group-item-action">个人资料查询</a>
+                        <a href="#" class="list-group-item list-group-item-action">个人历史查询</a>
+                        <a class="text-light active list-group-item list-group-item-action">统计</a>
+                        <a href="#" class="list-group-item list-group-item-action">曲线统计</a>
+                        <a href="#" class="list-group-item list-group-item-action">柱状图统计</a>
+                        <a href="#" class="list-group-item list-group-item-action">饼状图统计</a>
+                        <a class="text-light active  list-group-item list-group-item-action">信息录入</a>
+                        <a href="#" class="list-group-item list-group-item-action">添加地点信息</a>
+                        <a href="#" class="list-group-item list-group-item-action">修改地点信息</a>
+                        <a href="#" class="list-group-item list-group-item-action">提升人员权限</a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-9">
-                <form id="form2" runat="server">
+                <div class="col-9">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
-                </form>
+                </div>
             </div>
         </div>
-    </div>
-    <footer class="border-top footer text-muted">
-        <div class="container">
-            &copy; 2020 - 行通管理系统 - <a href="#">隐私条款</a>
-        </div>
-    </footer>
-    <script src="js/site.js"></script>
+        <footer class="border-top footer text-muted">
+            <div class="container">
+                &copy; 2020 - 行通管理系统 - <a href="#">隐私条款</a>
+            </div>
+        </footer>
+        <script src="js/site.js"></script>
 
-</body>
+    </body>
+</form>
 </html>
