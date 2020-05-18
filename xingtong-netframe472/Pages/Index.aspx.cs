@@ -11,6 +11,15 @@ namespace Xingtong_NETFRAME.Pages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            Panel1.Visible = false;
+            Panel2.Visible = false;
+
+            string username = (string)(Session["username"]);
+            if (username == null || username.Equals(""))
+                Panel1.Visible = true;
+            else
+                Panel2.Visible = true;
+            Label1.Text = DateTime.Now.ToString();
 
         }
     }

@@ -26,7 +26,7 @@
         <header>
             <nav class="navbar  navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
                 <div class="container">
-                 
+
                     <img class="navbar-brand" style="width: 40px;" src="images/icon.png" />
                     <a class="navbar-brand" href="Index.aspx">行通管理系统</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -55,23 +55,23 @@
         </header>
         <div class="container">
             <asp:Panel ID="Panel1" runat="server">
-                        <div class="toast" data-autohide="false" style=" position:absolute; right: 10px; top: 10px; float: right; min-width: 300px;">
-                            <div class="toast-header">
-                                <strong class="mr-auto text-primary">
-                                    <asp:Label ID="Label_alert_title" runat="server" Text="Label"></asp:Label></strong>
-                                <small class="text-muted">刚刚</small>
-                                <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
-                            </div>
-                            <div class="toast-body">
-                                <asp:Label ID="Label_alert_content" runat="server" Text="Label"></asp:Label>
-                            </div>
-                        </div>
-                        <script>
-                            $(document).ready(function () {
-                                $('.toast').toast('show');
-                            });
-                        </script>
-                    </asp:Panel>
+                <div class="toast" data-autohide="false" style="position: absolute; right: 10px; top: 10px; float: right; min-width: 300px;">
+                    <div class="toast-header">
+                        <strong class="mr-auto text-primary">
+                            <asp:Label ID="Label_alert_title" runat="server" Text="Label"></asp:Label></strong>
+                        <small class="text-muted">刚刚</small>
+                        <button type="button" class="ml-2 mb-1 close" data-dismiss="toast">&times;</button>
+                    </div>
+                    <div class="toast-body">
+                        <asp:Label ID="Label_alert_content" runat="server" Text="Label"></asp:Label>
+                    </div>
+                </div>
+                <script>
+                    $(document).ready(function () {
+                        $('.toast').toast('show');
+                    });
+                </script>
+            </asp:Panel>
             <div class="row">
                 <div class="col-2 col sidebar">
                     <div class="list-group shadow " style="margin-bottom: 90px;">
@@ -88,6 +88,7 @@
                         <a href="#" class="list-group-item list-group-item-action">提升人员权限</a>
                     </div>
                 </div>
+
                 <div class="col-9">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>

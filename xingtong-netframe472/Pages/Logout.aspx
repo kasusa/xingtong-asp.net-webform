@@ -12,6 +12,6 @@
     <br />
 
      <asp:Button class="btn btn-lg btn-danger btn-block"  ID="Button1" runat="server" Text="登出" OnClick="Button1_Click" ></asp:Button>
-     <asp:Button class="btn btn-lg btn-secondary btn-block"  ID="Button2" runat="server" Text="返回" OnClick="Button1_Click" ></asp:Button>
+     <asp:Button class="btn btn-lg btn-secondary btn-block"  ID="Button2" runat="server" Text="返回" OnClick="Button2_Click"  ></asp:Button>
 
 </asp:Content>
