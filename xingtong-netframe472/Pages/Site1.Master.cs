@@ -24,8 +24,12 @@ namespace Xingtong_NETFRAME.Pages
                 //登录后右上角文字变为用户名
                 Button1.Text = username;
 
+            CheckToast();
+        }
+        public void CheckToast()
+        {
             //通知检查
-            if ( !toast.title.Equals(""))
+            if (!toast.title.Equals(""))
             {
                 Panel1.Visible = true;
                 Label_alert_title.Text = toast.title;
@@ -36,9 +40,7 @@ namespace Xingtong_NETFRAME.Pages
             {
                 Panel1.Visible = false;
             }
-
         }
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             if (Button1.Text.Equals("登录"))

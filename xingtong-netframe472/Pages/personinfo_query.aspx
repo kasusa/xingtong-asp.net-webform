@@ -20,10 +20,13 @@
                             <td>身份证:</td>
                             <td>
                                 <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox></td>
-                            <td > <asp:Button class="btn" forecolor="SteelBlue" ID="Button1" runat="server" Text="过滤" /></td>
+                            <td>
+                                <asp:Button class="btn" ForeColor="SteelBlue" ID="Button1" runat="server" Text="过滤" OnClick="Button1_Click" />
+                                <asp:Button class="btn" ID="Button2" ForeColor="#FF5050" runat="server" Text="清空输入" OnClick="Button2_Click" OnClientClick="ButtonConf()" />
+                            </td>
                         </tr>
                     </table>
-                        
+
                 </div>
                 <div class="card-footer">
                     <a class="card-link" data-toggle="collapse" href="#collapseOne">如何使用过滤功能?
@@ -32,7 +35,7 @@
                 <div id="collapseOne" class="collapse" data-parent="#accordion">
                     <div class="card-footer">
                         <ul>
-                            <li>如果不使用过滤功能(输入框留空), 将会显示全部人员(因为数据量大,可能极其耗时)</li>
+                            <li>如果输入框留空, 将会显示全部人员 (可能比较耗时)</li>
                             <li>使用过滤身份证过滤的功能, 将会匹配身份证前部号码</li>
                             <li>使用姓名过滤功能, 会模糊匹配姓名</li>
                         </ul>
@@ -40,7 +43,19 @@
                 </div>
             </div>
             <br>
-            <table class="table table-bordered table-hover">
+            <asp:Panel ID="Panel1" runat="server">
+                <div class="alert alert-success alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    <strong>查询成功!</strong> 获取了<asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>条记录
+                </div>
+            </asp:Panel>
+            <asp:Panel ID="Panel2" runat="server">
+                <div class="alert alert-danger alert-dismissible">
+                    <button type="button" class="close" data-dismiss="alert">&times;</button>
+                    没有任何相关记录
+                </div>
+            </asp:Panel>
+            <table class="table table-bordered table-hover" style="margin-bottom: 80px;">
 
                 <thead class="thead-light">
                     <tr>
@@ -49,22 +64,8 @@
                         <th>身份证</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>John</td>
-                        <td>Doe</td>
-                        <td>john@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>Mary</td>
-                        <td>Moe</td>
-                        <td>mary@example.com</td>
-                    </tr>
-                    <tr>
-                        <td>July</td>
-                        <td>Dooley</td>
-                        <td>july@example.com</td>
-                    </tr>
+                <tbody id="aa">
+                    <%= outputtable%>
                 </tbody>
             </table>
 
