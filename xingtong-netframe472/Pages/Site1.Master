@@ -76,7 +76,7 @@
                 <div class="col-2 col sidebar">
                     <div class="list-group shadow " style="margin-bottom: 90px;">
                         <a class="text-light active list-group-item list-group-item-action">查询</a>
-                        <a href="#" class="list-group-item list-group-item-action">个人资料查询</a>
+                        <a href="personinfo_query.aspx" class="list-group-item list-group-item-action">个人资料查询</a>
                         <a href="#" class="list-group-item list-group-item-action">个人历史查询</a>
                         <a class="text-light active list-group-item list-group-item-action">统计</a>
                         <a href="#" class="list-group-item list-group-item-action">曲线统计</a>
