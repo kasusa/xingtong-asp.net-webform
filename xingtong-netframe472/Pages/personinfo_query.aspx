@@ -6,7 +6,7 @@
         <br>
         <div id="accordion">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header ">
                     过滤器
                 </div>
                 <div class="card-body">
@@ -35,7 +35,7 @@
                 <div id="collapseOne" class="collapse" data-parent="#accordion">
                     <div class="card-footer">
                         <ul>
-                            <li>如果输入框留空, 将会显示全部人员 (可能比较耗时)</li>
+                            <li>如果输入框留空, 将会显示全部结果 (可能比较耗时)</li>
                             <li>使用过滤身份证过滤的功能, 将会匹配身份证前部号码</li>
                             <li>使用姓名过滤功能, 会模糊匹配姓名</li>
                         </ul>
@@ -55,7 +55,12 @@
                     没有任何相关记录
                 </div>
             </asp:Panel>
-            <table class="table table-bordered table-hover" style="margin-bottom: 80px;">
+            <style>
+                #mothertable > tbody > tr:nth-child(odd):hover {
+                    background-color: rgba(0, 0, 0, 0.05);
+                }
+            </style>
+            <table id="mothertable" class="table table-bordered " style="margin-bottom: 80px;">
 
                 <thead class="thead-light">
                     <tr>
