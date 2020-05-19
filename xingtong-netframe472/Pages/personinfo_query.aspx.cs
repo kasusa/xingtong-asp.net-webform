@@ -12,12 +12,18 @@ namespace xingtong_netframe472.Pages
     public partial class WebForm2 : System.Web.UI.Page
     {
         LinkedList<citizen> ctznlist = new LinkedList<citizen>();
-        public string outputtable = "请输入查询内容";
+        public string outputtable = "如果您不会使用,请先参考--如何使用过滤功能";
+        bool do_getisworker = false;
         protected void Page_Load(object sender, EventArgs e)
         {
-            //panel1 : 成功数量提示
-            //panel2 : 无消息提示
-            Panel1.Visible = false;
+            string username = (string)(Session["username"]);
+            if (username == null || username.Equals(""))
+            {
+                Response.Redirect("Index.aspx");
+            }
+                //panel1 : 成功数量提示
+                //panel2 : 无消息提示
+                Panel1.Visible = false;
             Panel2.Visible = false;
         }
         //返回html table格式的内容字符串
@@ -27,12 +33,12 @@ namespace xingtong_netframe472.Pages
             string sql1 = 
                 "SELECT citizen_name,citizen_gender, \n" +
                 "\tuser_phone,user_avtarlink,user_email,user_note,\n" +
-                "\t xiaoqu_name,buliding,unit,room,area_name,area_city,area_province\n" +
+                "\t xiaoqu_name,buliding,unit,room,area_name,area_city,area_province,citizen.citizenID\n" +
                 "FROM `user` , citizen , link  ,xiaoqu,area\n" +
                 "WHERE link.citizenid = user_citizenID \n" +
                 "and xiaoqu_area_id=areaID\n"+
                 "AND  user_citizenID = citizen.citizenID AND link.xiaoquid = xiaoqu.xiaoquID " +
-                 $"WHERE citizenID like '{id}%'\n" +
+                 $"and citizen.citizenID like '{id}%'\n" +
                 $"and citizen_name like '%{name}%'";
             var rdr = mt.sqlToReader(sql1);
             while (rdr.Read())
@@ -51,6 +57,14 @@ namespace xingtong_netframe472.Pages
                 dumdum.livarea.name = rdr[10].ToString();
                 dumdum.livarea.city = rdr[11].ToString();
                 dumdum.livarea.province = rdr[12].ToString();
+                dumdum.citizenid = rdr[13].ToString();
+
+                // 下面信息的计算和获取需要上述信息先存在
+                dumdum.age = getAgeById(dumdum.citizenid);
+                if (do_getisworker)
+                {
+                    dumdum.isworker = getIsworker(dumdum.citizenid);
+                }
 
                 ctznlist.AddLast(dumdum);
             }
@@ -61,44 +75,44 @@ namespace xingtong_netframe472.Pages
             foreach (var item in ctznlist)
             {
                 string addstr =
-                    "                    <tr data-toggle=\"collapse\" data-target=\"#___changetoid\">\n" +
-                "                        <td>姓名</td>\n" +
-                "                        <td>性别</td>\n" +
-                "                        <td>身份证</td>\n" +
+                "                    <tr data-toggle=\"collapse\" data-target=\"#_"+ item.citizenid + "\">\n" +
+                $"                        <td>{item.name}</td>\n" +
+                $"                        <td>{item.gender}</td>\n" +
+                $"                        <td>{item.citizenid}</td>\n" +
                 "                    </tr>\n" +
                 "                    <tr>\n" +
                 "                        <td class=\"table-active\" colspan=\"3\" style=\"padding:0; border: none;\">\n" +
-                "                            <div id=\"___changetoid\" class=\"collapse\">\n" +
+                $"                            <div id=\"_{item.citizenid}\" class=\"collapse\">\n" +
                 "                                <div class=\"row\">\n" +
-                "                                    <div class=\"col-sm-4\">\n" +
+                "                                    <div class=\"col-3\">\n" +
                 "                                        <img style=\"border: 5px solid whitesmoke;\n" +
-                "                                        margin: 6px 20px;\n" +
+                "                                        margin-left: 9px;\n" +
                 "                                        height: 185px;\n" +
-                "                                        box-shadow: 0 0 3px #000000ab;\" src=\"http://img3.imgtn.bdimg.com/it/u=3439706172,2676282241&fm=26&gp=0.jpg\" alt=\"照片\">\n" +
+                $"                                        box-shadow: 0 0 3px #000000ab;\" src=\"{item.avtarlink}\" alt=\"照片\">\n" +
                 "                                    </div>\n" +
-                "                                    <div class=\"col-sm-8\">\n" +
-                "                                        <table class=\" bg-light\">\n" +
+                "                                    <div class=\"col-9\">\n" +
+                "                                        <table class=\" bg-light ml-auto\">\n" +
                 "                                            <tr>\n" +
-                "                                                <td>居住区域</td>\n" +
-                "                                                <td>黑龙江 大庆 让胡路区</td>\n" +
-                "                                                <td>年龄</td>\n" +
-                "                                                <td>20</td>\n" +
+                $"                                                <td>居住区域</td>\n" +
+                $"                                                <td>{item.livarea.province}省 {item.livarea.city}市 {item.livarea.name}</td>\n" +
+                $"                                                <td>年龄</td>\n" +
+                $"                                                <td>{item.age}</td>\n" +
                 "                                            </tr>\n" +
                 "                                            <tr>\n" +
-                "                                                <td>具体住址</td>\n" +
-                "                                                <td>新潮建材城 4-5 601</td>\n" +
-                "                                                <td>手机</td>\n" +
-                "                                                <td>18816528960</td>\n" +
+                $"                                                <td>具体住址</td>\n" +
+                $"                                                <td>{item.livIn.xiaoquname} {item.livIn.building}号楼 {item.livIn.room}室 </td>\n" +
+                $"                                                <td>手机</td>\n" +
+                $"                                                <td>{item.phone}</td>\n" +
                 "                                            </tr>\n" +
                 "                                            <tr>\n" +
                 "                                                <td>工作人员</td>\n" +
-                "                                                <td>是</td>\n" +
+                $"                                                <td>{item.isworker}</td>\n" +
                 "                                                <td rowspan=\"2\">备注</td>\n" +
-                "                                                <td rowspan=\"2\">阿斯顿发斯蒂芬 asdsad 黑龙江 大庆 让胡路区</td>\n" +
+                $"                                                <td rowspan=\"2\">{item.note}</td>\n" +
                 "                                            </tr>\n" +
                 "                                            <tr>\n" +
                 "                                                <td>email</td>\n" +
-                "                                                <td>kasusaland@gmail.com</td>\n" +
+                $"                                                <td>{item.email}</td>\n" +
                 "                                            </tr>\n" +
                 "                                        </table>\n" +
                 "                                    </div>\n" +
@@ -114,11 +128,34 @@ namespace xingtong_netframe472.Pages
             return contentstr;
 
         }
+        // 新建sql链接查看是否为worker
+        public bool getIsworker(string citizenid)
+        {
+            var mt = new MysqlTOOLS();
+            string sql =
+                "SELECT * FROM `user`,worker\n" +
+                "WHERE `user`.user_citizenID = worker.worker_citizenid\n" +
+                $"and worker_citizenid = '{citizenid}'\n";
+            bool ans = mt.sqlToBoolhave(sql);
+            mt.closeconnection();
+            return ans;
+        }
+        //计算年龄,通过身份证
+        public int getAgeById(string id)
+        {
+            string s = id.Substring(6, 4);
+            int now = DateTime.Now.Year;
+            int me = Convert.ToInt32(s);
+
+            return (now - me);
+        }
+
         //过滤按钮,调用get函数
         protected void Button1_Click(object sender, EventArgs e)
         {
             string name = TextBox1.Text;
             string id = TextBox2.Text;
+            do_getisworker = CheckBox1.Checked;
             outputtable = get(name, id);
 
             int count = ctznlist.Count;

@@ -17,8 +17,9 @@ namespace Xingtong_NETFRAME.Pages
             if (username == null || username.Equals(""))
             {
                 //未登录状态下不显示sidebar,并且右上角文字为登录
-                Response.Write("<style>.sidebar {    cursor: not-allowed;    visibility: hidden;}</style>");
+                Response.Write("<style>.sidebar { visibility: hidden;}</style>");
                 Button1.Text = "登录";
+
             }
             else
                 //登录后右上角文字变为用户名

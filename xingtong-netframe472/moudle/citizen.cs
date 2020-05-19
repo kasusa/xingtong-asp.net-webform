@@ -7,6 +7,12 @@ namespace xingtong_netframe472.moudle
 {
     public class citizen
     {
+        public citizen()
+        {
+            this.livarea = new area();
+            this.livIn = new livingIn();
+        }
+
         public string name { get; set; }
         public string gender { get; set; }
         public string citizenid { get; set; }
@@ -19,6 +25,7 @@ namespace xingtong_netframe472.moudle
         public string phone { get; set; }
         public string avtarlink { get; set; }
         public string note { get; set; }
+        public int age { get; set; }
         public bool isworker { get; set; }
 
         
