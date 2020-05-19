@@ -21,9 +21,9 @@ namespace xingtong_netframe472.Pages
             {
                 Response.Redirect("Index.aspx");
             }
-                //panel1 : 成功数量提示
-                //panel2 : 无消息提示
-                Panel1.Visible = false;
+            //panel1 : 成功数量提示
+            //panel2 : 无消息提示
+            Panel1.Visible = false;
             Panel2.Visible = false;
         }
         //返回html table格式的内容字符串

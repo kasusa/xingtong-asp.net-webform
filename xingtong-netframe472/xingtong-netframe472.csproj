@@ -138,6 +138,7 @@
     <Content Include="Pages\lib\jquery\LICENSE.txt" />
     <Content Include="Pages\Login.aspx" />
     <Content Include="Pages\Logout.aspx" />
+    <Content Include="Pages\personhistory.aspx" />
     <Content Include="Pages\WebForm1.aspx" />
     <Content Include="Pages\personinfo_query.aspx" />
     <Content Include="Web.config" />
@@ -145,6 +146,7 @@
   <ItemGroup>
     <Compile Include="moudle\area.cs" />
     <Compile Include="moudle\citizen.cs" />
+    <Compile Include="moudle\history_item.cs" />
     <Compile Include="moudle\livingIn.cs" />
     <Compile Include="MysqlTOOLS.cs" />
     <Compile Include="Pages\Index.aspx.cs">
@@ -167,6 +169,13 @@
     </Compile>
     <Compile Include="Pages\Logout.aspx.designer.cs">
       <DependentUpon>Logout.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\personhistory.aspx.cs">
+      <DependentUpon>personhistory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\personhistory.aspx.designer.cs">
+      <DependentUpon>personhistory.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Site1.Master.cs">
       <DependentUpon>Site1.Master</DependentUpon>
