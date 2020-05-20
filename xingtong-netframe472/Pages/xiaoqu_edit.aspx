@@ -19,7 +19,10 @@
             <div class="card">
                 <div class="card-header ">
                     输入要修改的小区编号: <asp:TextBox ID="TextBox1" runat="server"> </asp:TextBox>
-                    <asp:Button class="btn" ID="Button1" runat="server" Text="查询" ForeColor="#0066CC" OnClick="Button1_Click" /> 
+                    <div class="btn">
+
+                    <asp:Button  ID="Button1" runat="server" Text="查询" ForeColor="#0066CC" OnClick="Button1_Click" /> 
+                    </div>
                     <a href="xiaoqu_query.aspx" target="_blank">查询小区编号</a>
                 </div>
                 <asp:Panel ID="Panel3" runat="server">
@@ -44,6 +47,7 @@
                 <div id="collapseOne" class="collapse" data-parent="#accordion">
                     <div class="card-footer">
                         <ul>
+                            <li>本功能用于修改录入错误的小区/更名小区的信息</li>
                             <li>首先输入小区编号,点击<kbd>查询</kbd> </li>
                             <li>如果查询成功,会跳出小区的信息,请按照需要修改</li>
                             <li>修改之后,点击保存以存储信息。点击取消以取消修改</li>

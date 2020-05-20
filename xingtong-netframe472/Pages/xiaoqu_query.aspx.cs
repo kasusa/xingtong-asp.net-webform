@@ -23,6 +23,20 @@ namespace xingtong_netframe472.Pages
             //panel2 : 无消息提示
             Panel1.Visible = false;
             Panel2.Visible = false;
+
+            //先显示所有小区
+            outputtable = get("", "", "","" ,"" );
+
+            //获取一共取得的项目数量
+            int count = xxxlist.Count;
+            if (count > 0)
+            {
+                Label1.Text = count.ToString();
+                Panel1.Visible = true;
+            }
+            else
+                Panel2.Visible = true;
+
         }
         //这个按钮的功能是获取输入内容,生成表格
         protected void Button1_Click(object sender, EventArgs e)

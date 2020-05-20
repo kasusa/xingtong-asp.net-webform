@@ -84,9 +84,9 @@
                         <a href="#" class="list-group-item list-group-item-action">柱状图统计</a>
                         <a href="#" class="list-group-item list-group-item-action">饼状图统计</a>
                         <a class="text-light active  list-group-item list-group-item-action">信息录入</a>
-                        <a href="#" class="list-group-item list-group-item-action">添加地点信息</a>
+                        <a href="xiaoqu_make.aspx" class="list-group-item list-group-item-action">小区信息录入</a>
                         <a href="xiaoqu_edit.aspx" class="list-group-item list-group-item-action">修改小区信息</a>
-                        <a href="#" class="list-group-item list-group-item-action">提升人员权限</a>
+                        <a href="permote.aspx" class="list-group-item list-group-item-action">提升人员权限</a>
                     </div>
                 </div>
 

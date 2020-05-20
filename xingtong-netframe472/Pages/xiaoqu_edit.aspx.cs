@@ -14,6 +14,12 @@ namespace xingtong_netframe472.Pages
         bool xiaoquExist = false;
         protected void Page_Load(object sender, EventArgs e)
         {
+            //如果没有登录,跳转回主页
+            string username = (string)(Session["username"]);
+            if (username == null || username.Equals(""))
+            {
+                Response.Redirect("Index.aspx");
+            }
             Panel1.Visible = false;
             Panel2.Visible = false;
             Panel3.Visible = false;
