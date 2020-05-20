@@ -7,6 +7,7 @@ namespace xingtong_netframe472.moudle
 {
     public class area
     {
+        public string id { get; set; }
         public string name { get; set; }
         public string city { get; set; }
         public string province { get; set; }

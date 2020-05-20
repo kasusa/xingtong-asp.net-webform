@@ -78,6 +78,7 @@
                         <a class="text-light active list-group-item list-group-item-action">查询</a>
                         <a href="personinfo_query.aspx" class="list-group-item list-group-item-action">个人信息查询</a>
                         <a href="personhistory.aspx" class="list-group-item list-group-item-action">个人历史查询</a>
+                        <a href="xiaoqu_query.aspx" class="list-group-item list-group-item-action">小区信息查询</a>
                         <a class="text-light active list-group-item list-group-item-action">统计</a>
                         <a href="#" class="list-group-item list-group-item-action">曲线统计</a>
                         <a href="#" class="list-group-item list-group-item-action">柱状图统计</a>

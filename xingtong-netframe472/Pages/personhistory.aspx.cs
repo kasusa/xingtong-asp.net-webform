@@ -14,7 +14,7 @@ namespace xingtong_netframe472.Pages
         public string outputtable = "";
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //如果没有登录,跳转回主页
             string username = (string)(Session["username"]);
             if (username == null || username.Equals(""))
             {
@@ -26,7 +26,6 @@ namespace xingtong_netframe472.Pages
             Panel2.Visible = false;
             // 防止jquery的validtor错误
             UnobtrusiveValidationMode = UnobtrusiveValidationMode.None;
-            Panel1.Visible = false;
 
         }
         public string get(string id)
