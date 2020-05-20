@@ -6,49 +6,47 @@
     <div id="accordion">
         <div class="card">
             <div class="card-header ">
-                过滤器
+                过滤器 
+                <a  data-toggle="collapse" href="#collapseOne">如何使用?</a>
+
             </div>
-            <div class="card-body">
-                <div class="row">
-                    <div class="col-6">
-                        <table>
-                            <tr>
-                                <td>编号 :</td>
-                                <td>
-                                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>小区名 :</td>
-                                <td>
-                                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
-                                </td>
-                            </tr>
-                        </table>
+               
+                <div id="cardbody" class="card-body">
+                    <div class="row">
+                        <div class="col-6">
+                            <table>
+                                <tr>
+                                    <td>编号 :</td>
+                                    <td>
+                                        <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>小区名 :</td>
+                                    <td>
+                                        <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                        <div class="col-6">
+                            省 ：<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+                            <br>
+                            市 ：<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                            <br>
+                            区 ：<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+                        </div>
                     </div>
-                    <div class="col-6">
-                        省 ：<asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
-                        <br>
-                        市 ：<asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-                        <br>
-                        区 ：<asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
-                    </div>
+
+
+                    <asp:Button class="btn" ForeColor="SteelBlue" ID="Button1" runat="server" Text="过滤" OnClick="Button1_Click" />
+                    <asp:Button class="btn" ID="Button2" ForeColor="#FF5050" runat="server" Text="清空输入" OnClick="Button2_Click" OnClientClick="ButtonConf()" />
                 </div>
-
-
-                <asp:Button class="btn" ForeColor="SteelBlue" ID="Button1" runat="server" Text="过滤" OnClick="Button1_Click" />
-                <asp:Button class="btn" ID="Button2" ForeColor="#FF5050" runat="server" Text="清空输入" OnClick="Button2_Click" OnClientClick="ButtonConf()" />
-
-
-            </div>
-            <div class="card-footer">
-                <a class="card-link" data-toggle="collapse" href="#collapseOne">如何使用?
-                </a>
-            </div>
+            
             <div id="collapseOne" class="collapse" data-parent="#accordion">
                 <div class="card-footer">
                     <ul>
-                        <li>如果输入所有的输入框都留空, 将会显示全部小区</li>
+                        <li>如果输入所有的输入框都留空, 点击过滤将会显示全部小区</li>
                         <li><b>编号</b> 可以精准找到小区</li>
                         <li><b>小区名</b> 可以模糊搜索小区</li>
                         <li><b>省/市/区</b> 来框选地区的范围</li>

@@ -6,7 +6,7 @@
         <div id="accordion">
             <div class="card">
                 <div class="card-header ">
-                    过滤器
+                    过滤器 | <a href="personinfo_query.aspx" target="_blank">搜索居民身份证号</a>
 
                 </div>
                 <div class="card-body form-group">
