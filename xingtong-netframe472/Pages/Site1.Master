@@ -80,9 +80,8 @@
                         <a href="personhistory.aspx" class="list-group-item list-group-item-action">个人历史查询</a>
                         <a href="xiaoqu_query.aspx" class="list-group-item list-group-item-action">小区信息查询</a>
                         <a class="text-light active list-group-item list-group-item-action">统计</a>
-                        <a href="#" class="list-group-item list-group-item-action">曲线统计</a>
-                        <a href="#" class="list-group-item list-group-item-action">柱状图统计</a>
-                        <a href="#" class="list-group-item list-group-item-action">饼状图统计</a>
+                        <a href="static_curve.aspx" class="list-group-item list-group-item-action">按照时间统计</a>
+                        <a href="#" class="list-group-item list-group-item-action"><del>按照地区统计</del></a>
                         <a class="text-light active  list-group-item list-group-item-action">信息录入</a>
                         <a href="xiaoqu_make.aspx" class="list-group-item list-group-item-action">小区信息录入</a>
                         <a href="xiaoqu_edit.aspx" class="list-group-item list-group-item-action">修改小区信息</a>
@@ -90,13 +89,13 @@
                     </div>
                 </div>
 
-                <div class="col-9">
+                <div class="col-9" style="margin-bottom:60px;">
                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                     </asp:ContentPlaceHolder>
                 </div>
             </div>
         </div>
-        <footer class="border-top footer text-muted">
+        <footer class="border-top footer text-muted" >
             <div class="container">
                 &copy; 2020 - 行通管理系统 - <a href="#">隐私条款</a>
             </div>

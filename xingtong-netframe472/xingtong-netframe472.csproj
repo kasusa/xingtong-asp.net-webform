@@ -141,6 +141,7 @@
     <Content Include="Pages\permote.aspx" />
     <Content Include="Pages\personhistory.aspx" />
     <Content Include="Pages\personinfo_query.aspx" />
+    <Content Include="Pages\static_curve.aspx" />
     <Content Include="Pages\xiaoqu_edit.aspx" />
     <Content Include="Pages\xiaoqu_make.aspx" />
     <Content Include="Pages\xiaoqu_query.aspx" />
@@ -148,6 +149,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="moudle\area.cs" />
+    <Compile Include="moudle\chart_time_item.cs" />
     <Compile Include="moudle\citizen.cs" />
     <Compile Include="moudle\history_item.cs" />
     <Compile Include="moudle\livingIn.cs" />
@@ -201,6 +203,13 @@
     </Compile>
     <Compile Include="Pages\personinfo_query.aspx.designer.cs">
       <DependentUpon>personinfo_query.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\static_curve.aspx.cs">
+      <DependentUpon>static_curve.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\static_curve.aspx.designer.cs">
+      <DependentUpon>static_curve.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\xiaoqu_edit.aspx.cs">
       <DependentUpon>xiaoqu_edit.aspx</DependentUpon>
