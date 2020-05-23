@@ -27,16 +27,16 @@ namespace xingtong_netframe472.Pages
             Panel2.Visible = false;
 
             //开启先搜索,反正我现在数据库小,展示比较好看
-            outputtable = get("", "");
+            //outputtable = get("", "");
 
-            int count = ctznlist.Count;
-            if (count > 0)
-            {
-                Label1.Text = count.ToString();
-                Panel1.Visible = true;
-            }
-            else
-                Panel2.Visible = true;
+            //int count = ctznlist.Count;
+            //if (count > 0)
+            //{
+            //    Label1.Text = count.ToString();
+            //    Panel1.Visible = true;
+            //}
+            //else
+            //    Panel2.Visible = true;
         }
         //返回html table格式的内容字符串
         public string get(string name, string id)

@@ -39,10 +39,10 @@
                                 <a class="nav-link text-dark" href="Index.aspx">主页</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark">帮助</a>
+                                <a href="https://www.yuque.com/pingguoajie/ffx0gt/faw7ob#c0W5J" target="_blank" class="nav-link text-dark">帮助</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link text-dark">移动端下载</a>
+                                <a href="https://kasusa.lanzous.com/icwaiyb" target="_blank" class="nav-link text-dark">移动端下载</a>
                             </li>
                             <li class="nav-item ml-auto">
                                 <asp:Button ID="Button1" runat="server" Text="Button" class="btn" CssClass="btn" ForeColor="#0066FF" OnClick="Button1_Click" />
